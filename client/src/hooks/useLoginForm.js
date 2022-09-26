@@ -4,7 +4,7 @@ import MainPage from '../features/MainPage/MainPage';
 // save token to LocalStorage:
 // https://stackoverflow.com/questions/63141982/how-to-store-and-handle-jwt-tokens-on-front-end-using-fetch-and-how-to-store-it
 
-const useFormLogin = (validate, setRenderedComponent) => {
+const useLoginForm = (validate, setRenderedComponent) => {
   // custom hooks
   const [values, setValues] = useState({
     email: '',
@@ -86,4 +86,4 @@ const useFormLogin = (validate, setRenderedComponent) => {
     values, errors, serverError, unsuccessfulLogin};
 };
 
-export default useFormLogin;
+export default useLoginForm;

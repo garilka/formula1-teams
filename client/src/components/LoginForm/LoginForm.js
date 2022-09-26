@@ -1,20 +1,20 @@
 import React from 'react';
 import './LoginForm.css';
-// import Register from './../../features/Register/Register';
-import useFormLogin from './../../hooks/useLoginForm';
+import RegisterForm from '../RegisterForm/RegisterForm';
+import useLoginForm from './../../hooks/useLoginForm';
 import validate from './../../services/loginFormValidation';
 
 const LoginForm = (props) => {
   const {
     clickHandler, handleChange, handleSubmit,
     values, errors, serverError, unsuccessfulLogin} =
-    useFormLogin(
+    useLoginForm(
         validate,
         props.setRenderedComponent,
     );
 
-  /*   const loginComponent =
-    <Register setRenderedComponent={props.setRenderedComponent}/>; */
+  const registerComponent =
+    <RegisterForm setRenderedComponent={props.setRenderedComponent}/>;
 
   return (
     <form
@@ -47,7 +47,7 @@ const LoginForm = (props) => {
       <button>Login</button>
       <br />
       <a
-        onClick={(e) => clickHandler(e, loginComponent)}
+        onClick={(e) => clickHandler(e, registerComponent)}
         href="#">Don&apos;t have an account yet?
       </a>
     </form>
