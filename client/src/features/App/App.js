@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import Login from '../Login/Login';
 import MainPage from '../MainPage/MainPage';
 import './App.css';
 
@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
     if (!inMemoryToken) {
       setRenderedComponent(
-          <LoginForm setRenderedComponent={setRenderedComponent}/>);
+          <Login setRenderedComponent={setRenderedComponent}/>);
     } else {
       setRenderedComponent(
           <MainPage setRenderedComponent={setRenderedComponent}/>);
