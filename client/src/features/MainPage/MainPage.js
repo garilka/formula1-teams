@@ -3,7 +3,7 @@ import './MainPage.css';
 import LogoAndTitle from '../../components/LogoAndTitle/LogoAndTitle';
 import LogoutButton from '../../components/LogoutButton/LogoutButton';
 import LoginButton from '../../components/LoginButton/LoginButton';
-import BlogPost from '../../components/BlogPost/BlogPost';
+import PostList from '../../components/PostList/PostList';
 
 const MainPage = (props) => {
   const [renderedButton, setRenderedButton] = useState(<></>);
@@ -32,13 +32,7 @@ const MainPage = (props) => {
         </div>
         {renderedButton}
       </div>
-
-      <BlogPost
-        teamName='Mercedes'
-        worldChampionships='2'
-        yearOfFoundation='2000'
-        feePaid='✔'
-      />
+      <PostList />
     </div>
   );
 };
