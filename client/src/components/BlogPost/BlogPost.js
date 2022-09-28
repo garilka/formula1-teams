@@ -11,7 +11,7 @@ const BlogPost = (props) => {
     <div className='postWrapper'>
       <div className='topIcons'>
         <div className='carIcon'>🏎️</div>
-        <div className='gearIcon' onClick={'EDITPAGE'}>⚙️</div>
+        <div className='gearIcon'>⚙️</div>
       </div>
 
       <div className='teamName'>
