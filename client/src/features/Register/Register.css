@@ -1,0 +1,12 @@
+.registerWrapper {
+  width: 25vw;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  padding-top: 15px;
+  -webkit-box-shadow: 10px 10px 28px -13px rgba(161, 161, 161, 0.5);
+  -moz-box-shadow: 10px 10px 28px -13px rgba(161,161,161,0.5);
+  box-shadow: 10px 10px 28px -13px rgba(161,161,161,0.5);
+}
