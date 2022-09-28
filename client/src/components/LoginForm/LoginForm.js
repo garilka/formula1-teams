@@ -23,11 +23,12 @@ const LoginForm = (props) => {
     <form
       className='loginForm'
       onSubmit={handleSubmit}>
-      <h3>Login</h3>
+      <h3 className='loginTitle'>Welcome back!</h3>
       {serverError.message ? <p>{serverError.message}</p> : null}
       {unsuccessfulLogin.message ? <p>{unsuccessfulLogin.message}</p> : null}
-      <label htmlFor="email">E-mail:</label> <br />
+      <label className='loginLabel' htmlFor="email">E-mail</label>
       <input
+        className='loginInput'
         name="email"
         id="email"
         type="text"
@@ -36,9 +37,9 @@ const LoginForm = (props) => {
         autoFocus
       />
       {errors.email && <p>{errors.email}</p>}
-      <br />
-      <label htmlFor="password">Password:</label> <br />
+      <label className='loginLabel' htmlFor="password">Password</label>
       <input
+        className='loginInput'
         name="password"
         id="password"
         type="password"
@@ -46,15 +47,14 @@ const LoginForm = (props) => {
         onChange={handleChange}
       />
       {errors.password && <p>{errors.password}</p>}
-      <br />
-      <button>Login</button>
-      <br />
+      <button className='loginFormButton'>Login</button>
       <a
+        className='link'
         onClick={(e) => clickHandler(e, registerComponent)}
         href="#">Don&apos;t have an account yet?
       </a>
-      <br />
       <a
+        className='link'
         onClick={(e) => clickHandler(e, mainPageComponent)}
         href="#">Continue without login
       </a>
