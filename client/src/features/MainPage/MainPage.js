@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import './MainPage.css';
 import LogoAndTitle from '../../components/LogoAndTitle/LogoAndTitle';
 import LogoutButton from '../../components/LogoutButton/LogoutButton';
 import LoginButton from '../../components/LoginButton/LoginButton';
+import BlogPost from '../../components/BlogPost/BlogPost';
 
 const MainPage = (props) => {
   const [renderedButton, setRenderedButton] = useState(<></>);
@@ -22,11 +24,21 @@ const MainPage = (props) => {
 
 
   return (
-    <div>
-      <LogoAndTitle />
-      Hello, this is main page!
-      <br/>
-      {renderedButton}
+    <div className='mainPageWrapper'>
+      <div className='header'>
+        <div>
+          <LogoAndTitle />
+          Informations about the next race&apos;s groups
+        </div>
+        {renderedButton}
+      </div>
+
+      <BlogPost
+        teamName='Mercedes'
+        worldChampionships='2'
+        yearOfFoundation='2000'
+        feePaid='✔'
+      />
     </div>
   );
 };

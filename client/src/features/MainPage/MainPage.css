@@ -1,0 +1,23 @@
+.mainPageWrapper {
+  padding: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+  margin: 0;
+  width: 48vw;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: right;
+  -webkit-box-shadow: 10px 10px 28px -13px rgba(161, 161, 161, 0.5);
+  -moz-box-shadow: 10px 10px 28px -13px rgba(161,161,161,0.5);
+  box-shadow: 10px 10px 28px -13px rgba(161,161,161,0.5);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
