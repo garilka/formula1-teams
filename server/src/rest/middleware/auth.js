@@ -1,6 +1,6 @@
 import pkg from 'jsonwebtoken';
 const {verify} = pkg;
-import {allowedRoutes} from './authConfig.js';
+import {allowedRoutes, noTokenRoutes} from './authConfig.js';
 
 const verifyToken = (req, res, next) => {
   let token = req.headers['authorization'];
@@ -11,7 +11,7 @@ const verifyToken = (req, res, next) => {
   }
 
 
-  if (!token) {
+  if (!token && !path.includes(noTokenRoutes)) {
     return res.status(403).send('A token is required for authentication');
   }
 
