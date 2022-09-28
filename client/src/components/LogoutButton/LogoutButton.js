@@ -1,4 +1,5 @@
 import React from 'react';
+import './LogoutButton.css';
 
 const LogoutButton = (props) => {
   const handleClick= (e) => {
@@ -7,7 +8,9 @@ const LogoutButton = (props) => {
   };
 
   return (
-    <button type='button' onClick={(e) => handleClick(e)}>
+    <button className='button'
+      type='button'
+      onClick={(e) => handleClick(e)}>
       Logout
     </button>
   );
