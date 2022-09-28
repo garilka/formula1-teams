@@ -1,6 +1,6 @@
 import React from 'react';
 import './LoginForm.css';
-import RegisterForm from '../RegisterForm/RegisterForm';
+import Register from '../../features/Register/Register';
 import useLoginForm from './../../hooks/useLoginForm';
 import MainPage from '../../features/MainPage/MainPage';
 import validate from './../../services/loginFormValidation';
@@ -15,7 +15,7 @@ const LoginForm = (props) => {
     );
 
   const registerComponent =
-    <RegisterForm setRenderedComponent={props.setRenderedComponent}/>;
+    <Register setRenderedComponent={props.setRenderedComponent}/>;
   const mainPageComponent =
     <MainPage setRenderedComponent={props.setRenderedComponent}/>;
 

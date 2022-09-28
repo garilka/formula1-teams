@@ -1,6 +1,6 @@
 import React from 'react';
 import './RegisterForm.css';
-import Login from './../../components/LoginForm/LoginForm';
+import Login from '../../features/Login/Login';
 import validate
   from './../../services/registerFormValidation';
 import useRegisterForm from './../../hooks/useRegisterForm';
