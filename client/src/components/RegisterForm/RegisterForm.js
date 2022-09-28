@@ -22,10 +22,11 @@ const RegisterForm = (props) => {
     <form
       className='registerForm'
       onSubmit={handleSubmit}>
-      <h3>Register</h3>
+      <h3 className='registerTitle'>Create new account</h3>
       {responseError.message ? <p>{responseError.message}</p> : null}
-      <label htmlFor="email">E-mail:</label> <br />
+      <label className='registerLabel' htmlFor="email">E-mail</label>
       <input
+        className='registerInput'
         name="email"
         id="email"
         type="text"
@@ -35,9 +36,9 @@ const RegisterForm = (props) => {
       />
       {errors.email && <p>{errors.email}</p>}
       {usedEmail.message ? <p>{usedEmail.message}</p> : null}
-      <br />
-      <label htmlFor="password">Password:</label> <br />
+      <label className='registerLabel' htmlFor="password">Password</label>
       <input
+        className='registerInput'
         name="password"
         id="password"
         type="password"
@@ -45,9 +46,13 @@ const RegisterForm = (props) => {
         onChange={handleChange}
       />
       {errors.password && <p>{errors.password}</p>}
-      <br />
-      <label htmlFor="passwordAgain">Password again:</label> <br />
+      <label
+        className='registerLabel'
+        htmlFor="passwordAgain">
+        Password again
+      </label>
       <input
+        className='registerInput'
         name="passwordAgain"
         id="passwordAgain"
         type="password"
@@ -55,9 +60,9 @@ const RegisterForm = (props) => {
         onChange={handleChange}
       />
       {errors.passwordAgain && <p>{errors.passwordAgain}</p>}
-      <br />
-      <label htmlFor="nickname">Nickname:</label> <br />
+      <label className='registerLabel' htmlFor="nickname">Nickname</label>
       <input
+        className='registerInput'
         name="nickname"
         id="nickname"
         type="text"
@@ -65,10 +70,9 @@ const RegisterForm = (props) => {
         onChange={handleChange}
       />
       {errors.nickname && <p>{errors.nickname}</p>}
-      <br />
-      <button>Submit</button>
-      <br />
+      <button className='registerFormButton'>Submit</button>
       <a
+        className='link'
         onClick={alreadyHaveAccountHandler}
         href="#">Already have an account?
       </a>
