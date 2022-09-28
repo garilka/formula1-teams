@@ -1,4 +1,5 @@
 import React from 'react';
+import './LoginButton.css';
 import LoginForm from '../LoginForm/LoginForm';
 
 const LoginButton = (props) => {
@@ -12,7 +13,10 @@ const LoginButton = (props) => {
   };
 
   return (
-    <button type='button' onClick={(e) => handleClick(e, loginFormComponent)}>
+    <button
+      className='button'
+      type='button'
+      onClick={(e) => handleClick(e, loginFormComponent)}>
       Login
     </button>
   );
