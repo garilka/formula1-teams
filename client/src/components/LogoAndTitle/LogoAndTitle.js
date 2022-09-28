@@ -1,8 +1,9 @@
 import React from 'react';
+import './LogoAndTitle.css';
 
 const LogoAndTitle = () => {
   return (
-    <h2>FORMULA-1 TEAMS 🏁</h2>
+    <h2 className='title'>FORMULA-1 TEAMS 🏁</h2>
   );
 };
 
