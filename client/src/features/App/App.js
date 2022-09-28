@@ -20,7 +20,7 @@ const App = () => {
   }, [inMemoryToken]);
 
   return (
-    <div className="App">
+    <div className='app'>
       {renderedComponent}
     </div>
   );
