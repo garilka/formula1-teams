@@ -11,16 +11,16 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      foundation_year: {
+      foundationYear: {
         type: Sequelize.INTEGER,
       },
       wins: {
         type: Sequelize.INTEGER,
       },
-      fee_paid: {
+      feePaid: {
         type: Sequelize.BOOLEAN,
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
       },
       createdAt: {
