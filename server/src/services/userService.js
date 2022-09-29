@@ -42,7 +42,6 @@ const generateToken = async (user) => {
   const payload = {
     id: user.id,
     email: user.email,
-    photoUrl: 'User photo relative path',
   };
   try {
     const token = jwt.sign({payload}, secretKey);
