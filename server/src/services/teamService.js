@@ -38,6 +38,15 @@ const updateTeam = async (details) => {
   }
 };
 
+const deleteTeam = async (details) => {
+  const teamToDelete = await Team.findOne({where: {name: details.name}});
+  if (teamToDelete) {
+    await teamToDelete.destroy();
+  } else {
+    throw new Error(`Team not exist with name ${details.name}`);
+  };
+};
+
 const isInputValid = async (details) => {
   if (!isTeamNameValid(details.name)) {
     return 'Invalid team name';
@@ -93,4 +102,4 @@ const isFeePaidValid = (isPaid) => {
   return true;
 };
 
-export default {getAllTeams, createTeam, updateTeam};
+export default {getAllTeams, createTeam, updateTeam, deleteTeam};
