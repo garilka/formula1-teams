@@ -11,19 +11,34 @@ const getAllTeams = async () => {
 
 const createTeam = async (details) => {
   const message = await isInputValid(details);
-  if (message === undefined) {
+  const uniqueTeam = await isTeamNameUnique(details.name);
+  if (message === undefined && uniqueTeam) {
     const newTeam = await Team.create(details);
     return newTeam;
+  } else if (!uniqueTeam) {
+    throw new Error('Team already exists');
   } else {
     throw new ValidationError(message);
   }
 };
 
+const updateTeam = async (details) => {
+  const message = await isInputValid(details);
+  if (message === undefined) {
+    const teamToUpdate = await Team.findOne({where: {name: details.oldName}});
+    await teamToUpdate.set({
+      name: details.name,
+      foundationYear: details.foundationYear,
+      wins: details.wins,
+      feePaid: details.feePaid,
+    });
+    await teamToUpdate.save();
+  } else {
+    throw new ValidationError(message);
+  }
+};
 
 const isInputValid = async (details) => {
-  if (!await isTeamNameUnique(details.name)) {
-    return 'Team already exist';
-  }
   if (!isTeamNameValid(details.name)) {
     return 'Invalid team name';
   }
@@ -78,4 +93,4 @@ const isFeePaidValid = (isPaid) => {
   return true;
 };
 
-export default {getAllTeams, createTeam};
+export default {getAllTeams, createTeam, updateTeam};
