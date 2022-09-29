@@ -4,7 +4,7 @@ const usePostList = () => {
   const [postList, setPostList] = useState([]);
 
   const handleFetch = async () => {
-    fetch(process.env.REACT_APP_BACKEND_URL + '/api/team', {
+    fetch(process.env.REACT_APP_BACKEND_URL + '/api/team/all', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
