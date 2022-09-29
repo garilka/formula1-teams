@@ -1,8 +1,6 @@
 import Model from '../db/models';
-import jwt from 'jsonwebtoken';
 import {ValidationError} from './errorService.js';
 const {Team} = Model;
-const {verify} = jwt;
 
 const getAllTeams = async () => {
   const teams = await Team.findAll({
@@ -21,28 +19,9 @@ const createTeam = async (details) => {
   }
 };
 
-const decodeToken = (token) => {
-  if (token.startsWith('Bearer')) {
-    token = token.slice(7);
-  }
-  const decoded = verify(token, process.env.TOKEN_SECRET);
-  return decoded;
-};
-
-const isTeamNameUnique = async (teamName) => {
-  const nameFound = await Team.findOne({
-    subQuery: false,
-    where: {name: teamName},
-  });
-  console.log(nameFound);
-  if (nameFound !== undefined) {
-    return false;
-  }
-  return true;
-};
 
 const isInputValid = async (details) => {
-  if (!isTeamNameUnique(details.name)) {
+  if (!await isTeamNameUnique(details.name)) {
     return 'Team already exist';
   }
   if (!isTeamNameValid(details.name)) {
@@ -57,6 +36,14 @@ const isInputValid = async (details) => {
   if (!isFeePaidValid(details.feePaid)) {
     return 'Fee paid value should be 0 or 1';
   }
+};
+
+const isTeamNameUnique = async (teamName) => {
+  const nameFound = await Team.findOne({where: {name: teamName}});
+  if (nameFound !== null) {
+    return false;
+  }
+  return true;
 };
 
 const isTeamNameValid = (teamName) => {
@@ -91,4 +78,4 @@ const isFeePaidValid = (isPaid) => {
   return true;
 };
 
-export default {getAllTeams, createTeam, decodeToken};
+export default {getAllTeams, createTeam};

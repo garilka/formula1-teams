@@ -1,4 +1,6 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+const {verify} = jwt;
 
 async function hashPassword(password) {
   const saltRounds = 10;
@@ -13,7 +15,16 @@ function generatePayload(payload) {
   };
 };
 
+const decodeToken = (token) => {
+  if (token.startsWith('Bearer')) {
+    token = token.slice(7);
+  }
+  const decoded = verify(token, process.env.TOKEN_SECRET);
+  return decoded;
+};
+
 export default {
   hashPassword,
   generatePayload,
+  decodeToken,
 };
