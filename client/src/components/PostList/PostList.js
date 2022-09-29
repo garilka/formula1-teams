@@ -15,13 +15,13 @@ const PostList = (props) => {
 
   if (postList !== []) {
     listItems = postList.map((post) => {
-      const feePaidIcon = post.fee_paid === true? '✔':'✘';
+      const feePaidIcon = post.feePaid === true? '✔':'✘';
       return (
         <BlogPost
           key={post.name}
           teamName={post.name}
           worldChampionships={post.wins}
-          yearOfFoundation={post.foundation_year}
+          yearOfFoundation={post.foundationYear}
           feePaid={feePaidIcon}
         />
       );
