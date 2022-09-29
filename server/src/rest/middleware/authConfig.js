@@ -1,12 +1,8 @@
 const allowedRoutes = [
   '/',
-  '/api/team',
   '/api/auth',
   '/api/user',
+  '/api/team/all',
 ];
 
-const noTokenRoutes = [
-  '/api/team',
-];
-
-export {allowedRoutes, noTokenRoutes};
+export {allowedRoutes};
