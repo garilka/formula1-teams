@@ -49,4 +49,12 @@ const patch = async (req, res) => {
   }
 };
 
-export default {get, post, patch};
+const del = async (req, res) => {
+  try {
+    return res.status(204).json(teamService.deleteTeam({...req.body}));
+  } catch (error) {
+    return res.status(500).json({message: error.message});
+  }
+};
+
+export default {get, post, patch, del};
