@@ -4,6 +4,8 @@ import LogoAndTitle from '../../components/LogoAndTitle/LogoAndTitle';
 import LogoutButton from '../../components/LogoutButton/LogoutButton';
 import LoginButton from '../../components/LoginButton/LoginButton';
 import PostList from '../../components/PostList/PostList';
+import CreateTeamButton
+  from '../../components/CreateTeamButton/CreateTeamButton';
 
 const MainPage = (props) => {
   const [renderedButton, setRenderedButton] = useState(<></>);
@@ -32,7 +34,8 @@ const MainPage = (props) => {
         </div>
         {renderedButton}
       </div>
-      <PostList />
+      <CreateTeamButton setRenderedComponent={props.setRenderedComponent}/>
+      <PostList setRenderedComponent={props.setRenderedComponent}/>
     </div>
   );
 };
