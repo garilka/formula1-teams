@@ -47,6 +47,7 @@
 
 .registerFormButton:hover {
   cursor: pointer;
+  color: rgb(255, 225, 225);
 }
 
 .registerFormButton:active {

@@ -47,6 +47,7 @@
 
 .loginFormButton:hover {
   cursor: pointer;
+  color: rgb(255, 225, 225);
 }
 
 .loginFormButton:active {
