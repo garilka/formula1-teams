@@ -1,0 +1,21 @@
+.createTeamButton {
+  background-color: rgb(255, 255, 255);
+  border: solid 0.3em rgb(255, 25, 60);
+  color: rgb(255, 25, 60);
+  height: 3.7em;
+  width: 11em;
+  border-radius: 2em;
+  font-weight:900;
+  font-size: 0.8em;
+  padding-right: 10px;
+  margin-bottom: 1.5em;
+}
+
+.createTeamButton:hover {
+  cursor: pointer;
+  background-color: rgba(240, 20, 50, 0.05);
+}
+
+.createTeamButton:active {
+  background-color: rgb(240, 20, 50, 0.3);
+}
