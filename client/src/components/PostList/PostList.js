@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react';
+import './PostList.css';
 import BlogPost from '../BlogPost/BlogPost';
 import usePostList from '../../hooks/usePostList';
 
@@ -18,6 +19,7 @@ const PostList = (props) => {
       const feePaidIcon = post.feePaid === true? '✔':'✘';
       return (
         <BlogPost
+          setRenderedcomponent={props.setRenderedcomponent}
           key={post.name}
           teamName={post.name}
           worldChampionships={post.wins}
@@ -30,9 +32,9 @@ const PostList = (props) => {
 
   if (postList !== [] && postList !== null && postList !== undefined) {
     return (
-      <div>
+      <ul className='postListWrapper'>
         {listItems}
-      </div>
+      </ul>
     );
   } else {
     return (
