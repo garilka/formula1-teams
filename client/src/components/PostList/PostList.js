@@ -19,7 +19,7 @@ const PostList = (props) => {
       const feePaidIcon = post.feePaid === true? '✔':'✘';
       return (
         <BlogPost
-          setRenderedcomponent={props.setRenderedcomponent}
+          setRenderedComponent={props.setRenderedComponent}
           key={post.name}
           teamName={post.name}
           worldChampionships={post.wins}
