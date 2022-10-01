@@ -12,12 +12,12 @@ const EditTeamPage = (props) => {
   );
 
   return (
-    <div>
+    <div className='EditTeam'>
       <form
         className='EditTeamForm'
         onSubmit={handleSubmit}>
         <div className='topIcons'>
-          <div className='carIcon'>Edit team 🏎️</div>
+          <div className='carIcon'>Edit team 🖊️</div>
           <div
             className='gearIcon'
             onClick={handleExit}>
@@ -68,10 +68,10 @@ const EditTeamPage = (props) => {
             />
           </div>
         </div>
-        <button>Save</button>
         {responseError.message ? <p>{responseError.message}</p> : null}
+        <button>Save</button>
       </form>
-      <button onClick={handleDelete}>Delete team 🗑️</button>
+      <button className='delete' onClick={handleDelete}>🗑️ Delete team </button>
     </div>
   );
 };
