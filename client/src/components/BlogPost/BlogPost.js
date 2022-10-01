@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './BlogPost.css';
 import EditTeamPage from '../../features/EditTeamPage/EditTeamPage';
 
@@ -8,13 +8,26 @@ const BlogPost = (props) => {
   const yearOfFoundation = props.yearOfFoundation;
   const feePaid = props.feePaid;
 
+  const [visible, setVisible] = useState('hidden');
+  const [inMemoryToken] =
+  useState(JSON.parse(localStorage.getItem('token')));
+
   const EditTeamPageFeature =
     <EditTeamPage setRenderedComponent={props.setRenderedComponent} />;
+
+  useEffect(() => {
+    if (inMemoryToken === null) {
+      setVisible('hidden');
+    } else {
+      setVisible('visible');
+    }
+  }, [inMemoryToken]);
 
   const handleClick= (e, goal) => {
     e.preventDefault();
     props.setRenderedComponent(goal);
   };
+  console.log(visible);
 
   return (
     <li className='postWrapper'>
@@ -22,6 +35,7 @@ const BlogPost = (props) => {
         <div className='carIcon'>🏎️</div>
         <div
           className='gearIcon'
+          style={{visibility: visible}}
           onClick={(e) => handleClick(e, EditTeamPageFeature)}>
           ⚙️
         </div>
