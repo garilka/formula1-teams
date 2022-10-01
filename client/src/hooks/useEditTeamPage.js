@@ -69,7 +69,31 @@ const useEditTeamPage = (setRenderedComponent, teamName, isFeePaid) => {
     handleFetch();
   };
 
-  return {handleChange, handleChecked, handleExit, handleSubmit,
+  const handleDelete = () => {
+    const localStorageToken = JSON.parse(localStorage.getItem('token'));
+
+    fetch(process.env.REACT_APP_BACKEND_URL + '/api/team', {
+      method: 'DELETE',
+      body: JSON.stringify({name: values.name}),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': localStorageToken,
+      },
+    }).then(async (response) => {
+      if (response.status === 204) {
+        setRenderedComponent(<MainPage
+          setRenderedComponent={setRenderedComponent}/>);
+      } else {
+        const message = (await response.json()).message;
+        setResponseError({message: message});
+      }
+    }).catch(async (error) => {
+      setResponseError({message: error.message});
+    });
+  };
+
+  return {handleChange, handleChecked, handleExit, handleSubmit, handleDelete,
     values, responseError};
 };
 
