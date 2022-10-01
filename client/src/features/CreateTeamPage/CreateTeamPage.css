@@ -1,31 +1,50 @@
-form {
+.CreateTeam {
+  margin-top: 5vw;
+  background-color: rgb(255, 255, 255);
+  padding: 40px;
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+
+.CreateTeamForm {
   width: 45vw;
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
-  color: rgb(40, 40, 40);
-  padding: 25px;
-  padding-top: 0px;
-  border-radius: 0.6em;
-  margin-top: 5vw;
   margin-bottom: 20px;
 }
-
-label {
-  margin-top: 5px;
-  margin-bottom: 5px;
+.CreateTeamForm label {
   font-size: 0.9em;
   color: rgb(110, 100, 100);
 }
 
-input {
+.CreateTeamForm input {
+  border: solid 1px rgb(238, 238, 238);
+  outline: 0;
+  margin-top: 5px;
+  margin-bottom: 18px;
+  padding-left: 0.4em;
+  border-radius: 0.4em;
   font-size: 1.2em;
   font-weight: 600;
+  background-color: rgb(248, 248, 248);
+  width: 98%;
+  height: 2.5vw;
+  color: rgb(80, 80, 80);
 }
 
-.topIcons {
-  padding: 0;
-  margin-bottom: 0;
+.CreateTeamForm input:focus {
+  border: 1px solid rgb(212, 212, 212);
+}
+
+.CreateTeamForm > .teamName > input{
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.CreateTeamForm > .topIcons {
+  margin-top: 10px;
+  margin-bottom: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -34,12 +53,18 @@ input {
   height: 2.5em;
 }
 
-.gearIcon:hover {
+.CreateTeamForm > .topIcons > .carIcon {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.CreateTeamForm > .gearIcon:hover {
   scale: 0.9;
 }
 
-.teamName {
-  margin-bottom: 4px;
+.CreateTeamForm > .teamName {
+  width: 100%;
+  margin-bottom: 5px;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1.4em;
@@ -52,6 +77,30 @@ input {
   justify-content: space-between;
 }
 
-#feePaidInfo {
+.CreateTeamForm > #feePaidInfo {
   text-align: end;
+}
+
+.CreateTeamForm > button {
+  align-self: end;
+  background-color: rgb(255, 25, 60);
+  border-style: none;
+  color: white;
+  height: 4em;
+  width: 10em;
+  border-radius: 2em;
+  font-weight:900;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  margin-right: 1.2em;
+  font-size: 0.8em;
+}
+
+.CreateTeamForm > button:hover {
+  cursor: pointer;
+  color: rgb(255, 225, 225);
+}
+
+.CreateTeamForm > button:active {
+  background-color: rgb(240, 20, 50);
 }
