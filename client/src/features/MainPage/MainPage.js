@@ -9,35 +9,43 @@ import CreateTeamButton
 
 const MainPage = (props) => {
   const [renderedButton, setRenderedButton] = useState(<></>);
+  const [visible, setVisible] = useState('hidden');
   const [inMemoryToken] =
   useState(JSON.parse(localStorage.getItem('token')));
 
   useEffect(() => {
     if (inMemoryToken === null) {
+      setVisible('hidden');
       setRenderedButton(
           <LoginButton setRenderedComponent={props.setRenderedComponent}/>,
       );
     } else {
+      setVisible('visible');
       setRenderedButton(
           <LogoutButton setRenderedComponent={props.setRenderedComponent}/>,
       );
     }
   }, [inMemoryToken]);
 
-
-  return (
-    <div className='mainPageWrapper'>
-      <div className='header'>
-        <div>
-          <LogoAndTitle />
-          Informations about the next race&apos;s groups
+  if (props.setRenderedComponent) {
+    return (
+      <div className='mainPageWrapper'>
+        <div className='header'>
+          <div>
+            <LogoAndTitle />
+            Informations about the next race&apos;s groups
+          </div>
+          {renderedButton}
         </div>
-        {renderedButton}
+        <CreateTeamButton
+          visibility={visible}
+          setRenderedComponent={props.setRenderedComponent}/>
+        <PostList setRenderedComponent={props.setRenderedComponent}/>
       </div>
-      <CreateTeamButton setRenderedComponent={props.setRenderedComponent}/>
-      <PostList setRenderedComponent={props.setRenderedComponent}/>
-    </div>
-  );
+    );
+  } else {
+    window.location.reload();
+  }
 };
 
 export default MainPage;

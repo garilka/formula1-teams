@@ -16,6 +16,7 @@ const CreateTeamButton = (props) => {
     <button
       className='createTeamButton'
       type='button'
+      style={{visibility: props.visibility}}
       onClick={(e) => handleClick(e, CreateTeamPageFeatures)}>
       + New Team
     </button>
