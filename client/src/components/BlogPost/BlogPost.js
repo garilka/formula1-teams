@@ -13,7 +13,13 @@ const BlogPost = (props) => {
   useState(JSON.parse(localStorage.getItem('token')));
 
   const EditTeamPageFeature =
-    <EditTeamPage setRenderedComponent={props.setRenderedComponent} />;
+    <EditTeamPage
+      setRenderedComponent={props.setRenderedComponent}
+      teamName={props.teamName}
+      worldChampionships={props.worldChampionships}
+      yearOfFoundation={props.yearOfFoundation}
+      feePaid={props.feePaid}
+    />;
 
   useEffect(() => {
     if (inMemoryToken === null) {
@@ -27,7 +33,6 @@ const BlogPost = (props) => {
     e.preventDefault();
     props.setRenderedComponent(goal);
   };
-  console.log(visible);
 
   return (
     <li className='postWrapper'>
