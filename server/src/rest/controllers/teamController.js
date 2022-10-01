@@ -33,9 +33,8 @@ const post = async (req, res) => {
 const patch = async (req, res) => {
   try {
     const reqBodyKeywords = /name|wins|foundationYear|feePaid/g;
-    if (req.body.oldName &&
+    if (req.body.name &&
       Object.keys(req.body).some((key) => reqBodyKeywords.test(key))) {
-      await teamService.updateTeam(req.body);
       return res.status(200).json(await teamService.updateTeam({...req.body}));
     }
   } catch (error) {

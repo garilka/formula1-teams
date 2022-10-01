@@ -23,16 +23,22 @@ const createTeam = async (details) => {
 };
 
 const updateTeam = async (details) => {
-  const message = await isInputValid(details);
-  if (message === undefined) {
-    const teamToUpdate = await Team.findOne({where: {name: details.oldName}});
-    await teamToUpdate.set({
-      name: details.name,
-      foundationYear: details.foundationYear,
-      wins: details.wins,
-      feePaid: details.feePaid,
-    });
+  const teamToUpdate = await Team.findOne({where: {name: details.name}});
+  const message = await isUpdateValid(details);
+  if (message === undefined && teamToUpdate) {
+    if (details.wins) {
+      teamToUpdate.wins = details.wins;
+    }
+    if (details.foundationYear) {
+      teamToUpdate.foundationYear = details.foundationYear;
+    }
+    if (details.feePaid) {
+      teamToUpdate.feePaid = details.feePaid;
+    }
     await teamToUpdate.save();
+  } else if (!teamToUpdate) {
+    throw new ValidationError(
+        `Team not exist with name ${details.name}`);
   } else {
     throw new ValidationError(message);
   }
@@ -58,7 +64,20 @@ const isInputValid = async (details) => {
     return 'Invalid foundation year';
   }
   if (!isFeePaidValid(details.feePaid)) {
-    return 'Fee paid value should be 0 or 1';
+    return 'Fee paid value should be type of boolean';
+  }
+};
+
+const isUpdateValid = async (details) => {
+  if (!isWinsValid(details.wins) && details.wins) {
+    return 'Invalid number of wins';
+  }
+  if (!isFoundationYearValid(details.foundationYear) &&
+    details.foundationYear) {
+    return 'Invalid foundation year';
+  }
+  if (!isFeePaidValid(details.feePaid) && details.feePaid) {
+    return 'Fee paid value should be type of boolean';
   }
 };
 
@@ -72,7 +91,8 @@ const isTeamNameUnique = async (teamName) => {
 
 const isTeamNameValid = (teamName) => {
   const format = /[`!@#$%^&*()+\=\[\]{};':"\\|,.<>\/?~]/;
-  if (teamName.length > 25 || teamName.length < 3 || format.test(teamName)) {
+  if (!teamName || format.test(teamName) ||
+    teamName.length > 25 || teamName.length < 3) {
     return false;
   }
   return true;
@@ -80,7 +100,7 @@ const isTeamNameValid = (teamName) => {
 
 const isWinsValid = (wins) => {
   const format = /[0-9]/;
-  if (wins > 30 || wins < 0 || !format.test(wins)) {
+  if (wins && (wins > 30 || wins < 0 || !format.test(wins))) {
     return false;
   }
   return true;
@@ -88,15 +108,15 @@ const isWinsValid = (wins) => {
 
 const isFoundationYearValid = (year) => {
   const format = /[0-9]/;
-  if (year > 2023 || year < 1946 || !format.test(year)) {
+  if (year && (year > 2023 || year < 1946 || !format.test(year))) {
     return false;
   }
   return true;
 };
 
 const isFeePaidValid = (isPaid) => {
-  const format = /[0-1]/;
-  if (isPaid.toString().length > 1 || !format.test(isPaid)) {
+  if (isPaid !== undefined &&
+    isPaid.toString() !== 'true' && isPaid.toString() !== 'false') {
     return false;
   }
   return true;
