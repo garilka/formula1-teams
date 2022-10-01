@@ -3,7 +3,7 @@ import './EditTeamPage.css';
 import useEditTeamPage from '../../hooks/useEditTeamPage';
 
 const EditTeamPage = (props) => {
-  const {handleChange, handleChecked, handleExit, handleSubmit,
+  const {handleChange, handleChecked, handleExit, handleSubmit, handleDelete,
     values, responseError} =
   useEditTeamPage(
       props.setRenderedComponent,
@@ -71,7 +71,7 @@ const EditTeamPage = (props) => {
         <button>Save</button>
         {responseError.message ? <p>{responseError.message}</p> : null}
       </form>
-      <button>Delete team 🗑️</button>
+      <button onClick={handleDelete}>Delete team 🗑️</button>
     </div>
   );
 };
