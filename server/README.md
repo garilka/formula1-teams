@@ -17,7 +17,7 @@ can be found in `.env.example`
 |         DB_USER |   username that has access to the database schema |
 |     DB_PASSWORD |            password corresponding to the username |
 |         DB_NAME |                       name of the database schema |
-|         DB_HOST |                  address of the database database |
+|         DB_HOST |                           address of the database |
 |         DB_PORT |             INT where the DB server is running on |
 |      DB_DIALECT |                type of database management system |
 |    TOKEN_SECRET | STRING used for JWT generation, can be any string |

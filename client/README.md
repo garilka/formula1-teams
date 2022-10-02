@@ -14,7 +14,7 @@ can be found in `.env.example`
 
 |                         Variable |                                         Value |
 |:---------------------------------|----------------------------------------------:|
-|            REACT_APP_BACKEND_URL |          URL where the frontend is running on |
+|            REACT_APP_BACKEND_URL |           URL where the backend is running on |
 
 ## Available scripts
 
