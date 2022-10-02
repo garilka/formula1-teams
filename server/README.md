@@ -26,6 +26,8 @@ Create a database schema aligned with the given DB_NAME variable.
 Here you can find the RDBMS types that Sequelize ORM is compatible with:
 - [Sequelize supported RDBMS](https://sequelize.org/releases/)
 
+After creating the database schema:
+
 Run migrations
 
 ```console
